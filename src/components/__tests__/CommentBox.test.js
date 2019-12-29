@@ -1,13 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import CommentBox from 'components/CommentBox'; 
+import CommentContainer from 'containers/CommentContainer';
 import Root from 'Root';
-
 let wrapped;
 
 beforeEach(
     () => {
-        wrapped = mount(<Root><CommentBox /></Root>);
+        wrapped = mount(<Root><CommentContainer><CommentBox /></CommentContainer></Root>);
     }
 )
 
@@ -34,8 +34,7 @@ describe('the text area', () => {
         wrapped.update(); 
     }) 
 
-    it('should enter input into textarea', () => {          
-        wrapped.update();
+    it('should enter input into textarea', () => {                  
         expect(wrapped.find('textarea').prop('value')).toEqual('hi ayoub');
     });
 

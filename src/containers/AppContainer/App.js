@@ -1,14 +1,12 @@
 import React from 'react';
 import '../AppContainer/App.css';
-import CommentBox from 'components/CommentBox';
-import CommentList from 'components/CommentList';
+import CommentContainer from 'containers/CommentContainer';
 
 
 function App() {
   return (
     <div className="App">
-      <CommentBox />
-      <CommentList />
+      <CommentContainer />
     </div>
   );
 }
