@@ -1,15 +1,15 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import CommentBox from 'components/CommentBox';
+import CommentBox from 'components/CommentBox'; 
+import Root from 'Root';
 
 let wrapped;
 
 beforeEach(
     () => {
-        wrapped = mount(<CommentBox />);
+        wrapped = mount(<Root><CommentBox /></Root>);
     }
 )
-
 
 describe('comment box elements', () => {
     it('should contain h4 title', () => {
@@ -32,7 +32,7 @@ describe('the text area', () => {
             target: { value: 'hi ayoub' }
         });
         wrapped.update(); 
-    })
+    }) 
 
     it('should enter input into textarea', () => {          
         wrapped.update();
