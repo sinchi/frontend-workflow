@@ -1,24 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import * as actions from 'containers/CommentContainer/actions';
-
 class CommentBox extends React.Component {
 
     constructor(props){
-        super(props);
+        super(props);                
         this.state = {
             comment: ''
         }
         this.handleChange = this.handleChange.bind(this); 
-        this.handleSubmit = this.handleSubmit.bind(this);       
+        this.handleSubmit = this.handleSubmit.bind(this);         
+              
     }
     
-
     handleChange(e){
         this.setState({ comment: e.target.value });
     }
+
     handleSubmit(e){
-        e.preventDefault();
+        e.preventDefault();                
+        
         this.props.addComment(this.state.comment);
         this.setState({ comment: '' });
     }
@@ -36,10 +35,5 @@ class CommentBox extends React.Component {
     }
 }
 
-function mapStateToProps(state){
-    return {
-        comments: state.comments
-    }
-}
+export default CommentBox;
 
-export default connect(mapStateToProps, actions)(CommentBox);
