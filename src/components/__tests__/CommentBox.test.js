@@ -23,6 +23,13 @@ it('should contain button', () => {
     expect(wrapped.find('button').length).toEqual(1);
 });
 
+it('should enter input into textarea', () => {
+    wrapped.find('textarea').simulate('change', { target: { value: 'hi ayoub' } });    
+    wrapped.update();
+    expect(wrapped.find('textarea').prop('value')).toEqual('hi ayoub');
+});
+
+
 afterEach(
     () => {
       wrapped.unmount();
