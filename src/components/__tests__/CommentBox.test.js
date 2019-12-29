@@ -2,7 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import CommentBox from 'components/CommentBox';
 
-
 let wrapped;
 
 beforeEach(
@@ -24,17 +23,24 @@ it('should contain button', () => {
 });
 
 it('should enter input into textarea', () => {
-    wrapped.find('textarea').simulate('change', { target: { value: 'hi ayoub' } });    
+    wrapped.find('textarea').simulate('change', { 
+        target: { value: 'hi ayoub' } 
+    });    
     wrapped.update();
     expect(wrapped.find('textarea').prop('value')).toEqual('hi ayoub');
 });
 
 it('should submit input and empty the textarea', () => {
-    wrapped.find('button').simulate('submit');
+    wrapped.find('textarea').simulate('change', {
+        target: { value: 'hello ayoub' }
+    });
+    wrapped.update();        
+    
+    wrapped.find('form').simulate('submit');
     wrapped.update();
     const value = wrapped.find('textarea').prop('value');
     expect(value).toEqual('');
-})
+});
 
 
 afterEach(
