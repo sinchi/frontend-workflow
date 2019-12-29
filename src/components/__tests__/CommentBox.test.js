@@ -29,6 +29,13 @@ it('should enter input into textarea', () => {
     expect(wrapped.find('textarea').prop('value')).toEqual('hi ayoub');
 });
 
+it('should submit input and empty the textarea', () => {
+    wrapped.find('button').simulate('submit');
+    wrapped.update();
+    const value = wrapped.find('textarea').prop('value');
+    expect(value).toEqual('');
+})
+
 
 afterEach(
     () => {
