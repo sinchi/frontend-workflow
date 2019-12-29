@@ -1,8 +1,10 @@
 import React from 'react';
 
-export default CommentBox = () => (
+const CommentBox = () => (
     <form>
         <input type="text" />
         <button>Add Comment</button>
     </form>
 )
+
+export default CommentBox;

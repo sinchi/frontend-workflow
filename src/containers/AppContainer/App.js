@@ -1,8 +1,7 @@
 import React from 'react';
-import logo from '../../logo.svg';
 import '../AppContainer/App.css';
-import CommentBox from '../../components/CommentBox';
-import CommentList from '../../components/CommentList';
+import CommentBox from 'components/CommentBox';
+import CommentList from 'components/CommentList';
 
 
 function App() {
