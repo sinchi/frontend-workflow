@@ -1,10 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { shallow } from 'enzyme';
 import App from '../App';
+import CommentBox from '../../../components/CommentBox';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/This is the docker container/i);
-  expect(linkElement).toBeInTheDocument();
-});
-
+it('App should contain CommentBox and CommentList', () => {
+  const wrapped = shallow(<App />);
+  expect(wrapped.find(<CommentBox />).length)
+})
