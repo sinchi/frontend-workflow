@@ -3,24 +3,26 @@ import { mount } from 'enzyme';
 
 
 import Root from 'Root';
-import App from 'containers/AppContainer/App';
 import CommentBox from 'components/CommentBox';
 import CommentList from 'components/CommentList';
+import CommentContainer from 'containers/CommentContainer';
 
 let wrapped;
 
 describe('CommentList test suite', () => {
     beforeEach(() => {
-        wrapped = mount(<Root><App /></Root>);
+        wrapped = mount(<Root><CommentContainer /></Root>);
     });
     it('should contain one li per comment', () => {
-        const commentBox = wrapped.find(CommentBox);
-        commentBox.simulate('change', { target: { value: 'hi' } });
+        wrapped.find(CommentBox).find('textarea').simulate('change', { target: { value: 'hi' } });
         wrapped.update();
-        expect(commentBox.prop('value')).toEqual('');
+        expect(wrapped.find(CommentBox).find('textarea').prop('value')).toEqual('hi');
+        wrapped.find(CommentBox).find('form').simulate('submit');
+        wrapped.update();
+        expect(wrapped.find(CommentBox).find('textarea').prop('value')).toEqual('');
 
-        const list = wrapped.find(CommentList);
-        expect(list.find('li').length).toEqual(1);
+        expect(wrapped.find(CommentList).find('ul li').length).toEqual(1);
+    
     });
     afterEach(() => {
         wrapped.unmount();

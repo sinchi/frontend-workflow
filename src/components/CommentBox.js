@@ -16,8 +16,7 @@ class CommentBox extends React.Component {
     }
 
     handleSubmit(e){
-        e.preventDefault();                
-        
+        e.preventDefault();                        
         this.props.addComment(this.state.comment);
         this.setState({ comment: '' });
     }
