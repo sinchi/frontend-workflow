@@ -12,7 +12,7 @@ describe('comments integration test suite', () => {
 
     it('should fetch comments list and show the list', () => {
         wrapper.find('.fetchComments').simulate('click');
-        expect(wrapper.find('li').length).toEqual(500);
+        expect(wrapper.find('li').length).toEqual(501);
     });
 
     afterEach(() => {
