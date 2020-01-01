@@ -17,6 +17,7 @@ describe('comments integration test suite', () => {
     });
 
     it('should fetch comments list and show the list', (done) => {
+        console.log(wrapper.find('.fetchComments'))
         wrapper.find('.fetchComments').simulate('click');
         moxios.wait(() => {
             wrapper.update();
