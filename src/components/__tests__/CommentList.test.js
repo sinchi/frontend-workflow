@@ -14,20 +14,14 @@ describe('CommentList test suite', () => {
         const initialState ={
             comments: ['comment1', 'comment2']
         };
-        wrapped = mount(<Root initialState={initialState}><CommentContainer /></Root>);
-        wrapped.find(CommentBox).find('textarea').simulate('change', { target: { value: 'hi' } });
-        wrapped.update();
-        expect(wrapped.find(CommentBox).find('textarea').prop('value')).toEqual('hi');
-        wrapped.find(CommentBox).find('form').simulate('submit');
-        wrapped.update();
-        expect(wrapped.find(CommentBox).find('textarea').prop('value')).toEqual('');
+        wrapped = mount(<Root initialState={initialState}><CommentContainer /></Root>);                      
     });
     it('should contain one li per comment', () => {        
-        expect(wrapped.find(CommentList).find('ul li').length).toEqual(1);    
+        expect(wrapped.find(CommentList).find('li').length).toEqual(2);    
     });
 
     it('text from each comment is visible', () => {
-        console.log(wrapped.find(CommentList).render())    
+        console.log(wrapped.find(CommentList).find('ul').render().text())    
     });
 
     afterEach(() => {
