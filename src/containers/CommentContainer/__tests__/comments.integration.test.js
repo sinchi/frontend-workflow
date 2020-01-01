@@ -6,7 +6,7 @@ import moxios from 'moxios';
 
 let wrapper;
 
-describe('comments integration test suite', (done) => {
+describe('comments integration test suite', () => {
     beforeEach(() => {
         moxios.install();
         moxios.stubRequest('https://jsonplaceholder.typicode.com/comments', {
