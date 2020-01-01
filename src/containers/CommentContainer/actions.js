@@ -9,7 +9,7 @@ export const addComment = (comment) => {
 }
 
 export const fetchComments = async () => {
-    const comments;
+    let comments;
     try {
         comments= await axios.get('https://jsonplaceholder.typicode.com/posts/1/comments');
         return {
