@@ -23,7 +23,7 @@ describe('comment box elements', () => {
     });
     
     it('should contain button', () => {
-        expect(wrapped.find('button').length).toEqual(1);
+        expect(wrapped.find('button').length).toEqual(2);
     });
 });
 

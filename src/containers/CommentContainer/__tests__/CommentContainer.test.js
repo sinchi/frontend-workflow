@@ -7,6 +7,7 @@ import Root from 'Root';
 let wrapped;
 
 beforeEach(() => {
+   
     wrapped = mount(<Root><CommentContainer /></Root>);
 });
 

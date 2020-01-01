@@ -11,7 +11,10 @@ let wrapped;
 
 describe('CommentList test suite', () => {
     beforeEach(() => {
-        wrapped = mount(<Root><CommentContainer /></Root>);
+        const initialState ={
+            comments: ['comment1', 'comment2']
+        };
+        wrapped = mount(<Root initialState={initialState}><CommentContainer /></Root>);
         wrapped.find(CommentBox).find('textarea').simulate('change', { target: { value: 'hi' } });
         wrapped.update();
         expect(wrapped.find(CommentBox).find('textarea').prop('value')).toEqual('hi');
@@ -24,8 +27,9 @@ describe('CommentList test suite', () => {
     });
 
     it('text from each comment is visible', () => {
-        expect(wrapped.find(CommentList).find('ul li').length).toEqual(1); 
-    })
+        console.log(wrapped.find(CommentList).render())    
+    });
+
     afterEach(() => {
         wrapped.unmount();
     });
