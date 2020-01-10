@@ -7,8 +7,8 @@ export default function(state = initialState, action) {
         case ADD_COMMENT : {
             return [...state, action.comment];
         }
-        case FETCH_COMMENTS_SUCCESS: {
-            const comments = action.comments.map(comment => comment.name);
+        case FETCH_COMMENTS_SUCCESS: {            
+            const comments = action.comments.data.map(comment => comment.name);            
             return [...state, ...comments];
         }
         case FETCH_COMMENTS_FAILED: {

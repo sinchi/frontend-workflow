@@ -7,7 +7,8 @@ class CommentBox extends React.Component {
             comment: ''
         }
         this.handleChange = this.handleChange.bind(this); 
-        this.handleSubmit = this.handleSubmit.bind(this);         
+        this.handleSubmit = this.handleSubmit.bind(this);    
+        this.fetchComments = this.fetchComments.bind(this);
               
     }
     
@@ -21,6 +22,10 @@ class CommentBox extends React.Component {
         this.setState({ comment: '' });
     }
 
+    fetchComments(){
+        this.props.fetchComments();
+    }
+
     render(){        
         return (
             <div>
@@ -31,7 +36,7 @@ class CommentBox extends React.Component {
                         <button>Submit Comment</button>
                     </div> 
                 </form>
-                <button className="fetchComments">Fetch comments</button>
+                <button className="fetchComments" onClick={this.fetchComments}>Fetch comments</button>
             </div>
         )
     }
